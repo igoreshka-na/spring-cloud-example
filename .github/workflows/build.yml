@@ -1,10 +1,12 @@
-name: SonarCloud
 on:
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request.
   push:
     branches:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+name: Main Workflow
 jobs:
   build:
     name: Build and analyze
@@ -17,6 +19,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 17
+      - name: Set up Gradle
+        uses: actions/setup-gradle@v1
+        with:
+          gradle: latest
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
