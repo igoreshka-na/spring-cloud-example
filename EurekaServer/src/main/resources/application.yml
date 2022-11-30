@@ -1,0 +1,15 @@
+server:
+  port: 8010
+
+
+eureka:
+  client:
+    service-url:
+      defaul: http://localhost:8010/eureka
+
+    register-with-eureka: false
+    fetch-registry: false
+
+spring:
+  application:
+    name: eureka-server
