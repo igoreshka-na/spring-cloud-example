@@ -8,6 +8,6 @@ public class UserController {
 
     @GetMapping
     public String health() {
-        return "OK and Peace";
+        return "ne OK";
     }
 }
