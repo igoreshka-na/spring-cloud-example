@@ -46,25 +46,25 @@ dependencyManagement {
     }
 }
 
-oasGen {
-    generate("user-controller") {
-        source = DirectorySource(file("src/main/resources/openapi"))
-        schemaPath = "UserController.yaml"
-        generator = javaReactorNettyClient(
-                namespaceConfiguration = SingleNamespace("com.example"),
-                outputConfiguration = SingleOutput(java.sourceSets.main),
-        )
-    }
-}
+//oasGen {
+//    generate("user-controller") {
+//        source = DirectorySource(file("src/main/resources/openapi"))
+//        schemaPath = "UserController.yaml"
+//        generator = javaReactorNettyClient(
+//                namespaceConfiguration = SingleNamespace("com.example"),
+//                outputConfiguration = SingleOutput(java.sourceSets.main),
+//        )
+//    }
+//}
 
 tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-sonarqube {
+sonar {
     properties {
-        property("sonar.projectKey") to "igoreshka-na_spring-cloud-example"
-        property("sonar.organization") to "igoreshka-na"
-        property( "sonar.host.url") to "https://sonarcloud.io"
+        property("sonar.projectKey", "igoreshka-na_spring-cloud-example")
+        property("sonar.organization", "igoreshka-na")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
