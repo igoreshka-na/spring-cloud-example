@@ -8,6 +8,7 @@ plugins {
     id("org.springframework.boot") version "3.0.0"
     id("io.spring.dependency-management") version "1.1.0"
     id("io.github.fomin.oas-gen") version "0.2.2"
+    id("org.sonarqube") version "3.5.0.2730"
 }
 
 group = "com.example"
@@ -58,4 +59,12 @@ oasGen {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey") to "igoreshka-na_spring-cloud-example"
+        property("sonar.organization") to "igoreshka-na"
+        property( "sonar.host.url") to "https://sonarcloud.io"
+    }
 }
